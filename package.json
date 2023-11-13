@@ -1,0 +1,62 @@
+{
+  "name": "my-to-do",
+  "displayName": "My To-Do",
+  "description": "Create and track to-do lists.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "my-to-do.showTodo",
+        "title": "Show To Do"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "webpack --mode production && tsc",
+    "build:ui": "webpack --mode production",
+    "build:ext": "tsc",
+    "watch": "tsc -w",
+    "watch:ui": "webpack --mode development --watch",
+    "watch:ext": "tsc -w",
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "@babel/preset-react": "^7.23.3",
+    "@types/mocha": "^10.0.3",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.84.0",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "@vscode/test-electron": "^2.3.6",
+    "babel-loader": "^9.1.3",
+    "eslint": "^8.52.0",
+    "glob": "^10.3.10",
+    "html-webpack-plugin": "^5.5.3",
+    "mocha": "^10.2.0",
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.2.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
